@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Grass01.png" type="Texture" id=1]
 [ext_resource path="res://TexturesCom_Asphalt22_3x3_512_albedo.png" type="Texture" id=2]
-
-[sub_resource type="SpatialMaterial" id=2]
-albedo_texture = ExtResource( 2 )
+[ext_resource path="res://objects/swing_chair/Swing Chair.obj" type="ArrayMesh" id=3]
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 7.5, 0.15, 7.5 )
@@ -16,23 +14,17 @@ albedo_texture = ExtResource( 1 )
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 7.5, 0.15, 4.5 )
 
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 2 )
+
 [node name="Spatial" type="Spatial"]
-
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.16026, 0.987075, 0, -0.987075, 0.16026, 0, 14.9859, 6.51194 )
-
-[node name="tiles" type="CSGBox" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00449848, -1.20302, 11.9712 )
-width = 15.0
-height = 0.3
-depth = 9.0
-material = SubResource( 2 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.666871, 0.745173, 0, -0.745173, 0.666871, 0.185496, 7.02003, 15.7224 )
 
 [node name="grassbody" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.666871, 0.745173, 0, -0.745173, 0.666871, 0.185496, 7.02003, 15.7224 )
+transform = Transform( 1, 0, 0, 0, 0.66583, 0.746104, 0, -0.746104, 0.66583, 0.185496, 7.02003, 15.7224 )
+mode = 1
 
 [node name="CollisionShape" type="CollisionShape" parent="grassbody"]
 transform = Transform( 1, 0, 0, 0, 0.675564, -0.737301, 0, 0.737301, 0.675564, -0.165931, 6.25489, -16.659 )
@@ -46,7 +38,23 @@ depth = 15.0
 material = SubResource( 1 )
 
 [node name="TilesRigidBody" type="RigidBody" parent="."]
+mode = 1
 
 [node name="CollisionShape" type="CollisionShape" parent="TilesRigidBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.19628, 12.004 )
 shape = SubResource( 4 )
+
+[node name="tiles" type="CSGBox" parent="TilesRigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00449848, -1.20302, 11.9712 )
+width = 15.0
+height = 0.3
+depth = 9.0
+material = SubResource( 2 )
+
+[node name="Swing Chair" type="MeshInstance" parent="."]
+transform = Transform( 0.0999757, 0, -0.00220593, 0, 0.1, 0, 0.00220593, 0, 0.0999757, -4.77893, 0.214936, 12.4759 )
+mesh = ExtResource( 3 )
+skeleton = NodePath("../TilesRigidBody/tiles")
+
+[node name="RigidBody" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.64113, 3.38611, 13.0771 )

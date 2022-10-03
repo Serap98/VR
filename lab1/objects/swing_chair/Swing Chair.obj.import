@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Swing Chair.obj-f148a71187df32b8011b77d16aa30cff.mesh"
+
+[deps]
+
+files=[ "res://.import/Swing Chair.obj-f148a71187df32b8011b77d16aa30cff.mesh" ]
+
+source_file="res://objects/swing_chair/Swing Chair.obj"
+dest_files=[ "res://.import/Swing Chair.obj-f148a71187df32b8011b77d16aa30cff.mesh", "res://.import/Swing Chair.obj-f148a71187df32b8011b77d16aa30cff.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
