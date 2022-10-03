@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Grass01.png" type="Texture" id=1]
 [ext_resource path="res://TexturesCom_Asphalt22_3x3_512_albedo.png" type="Texture" id=2]
@@ -16,6 +16,17 @@ extents = Vector3( 7.5, 0.15, 4.5 )
 
 [sub_resource type="SpatialMaterial" id=2]
 albedo_texture = ExtResource( 2 )
+
+[sub_resource type="SphereShape" id=5]
+radius = 0.938663
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 0.718923, 0.986626, 0.849823 )
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 0.146039, 3.06356, 0.103352 )
+
+[sub_resource type="Skin" id=8]
 
 [node name="Spatial" type="Spatial"]
 
@@ -51,10 +62,23 @@ height = 0.3
 depth = 9.0
 material = SubResource( 2 )
 
-[node name="Swing Chair" type="MeshInstance" parent="."]
-transform = Transform( 0.0999757, 0, -0.00220593, 0, 0.1, 0, 0.00220593, 0, 0.0999757, -4.77893, 0.214936, 12.4759 )
-mesh = ExtResource( 3 )
-skeleton = NodePath("../TilesRigidBody/tiles")
-
 [node name="RigidBody" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.64113, 3.38611, 13.0771 )
+
+[node name="oval" type="CollisionShape" parent="RigidBody"]
+transform = Transform( 1.2, 0, 0, 0, 1.55, 0, 0, 0, 1.75, -0.596992, 0.176142, -0.670918 )
+shape = SubResource( 5 )
+
+[node name="blanket" type="CollisionShape" parent="RigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.705729, -2.12731, -0.837606 )
+shape = SubResource( 6 )
+
+[node name="chain" type="CollisionShape" parent="RigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.646382, 4.85323, -0.755887 )
+shape = SubResource( 7 )
+
+[node name="Swing Chair" type="MeshInstance" parent="RigidBody"]
+transform = Transform( 0.0999757, 0, -0.00220593, 0, 0.1, 0, 0.00220593, 0, 0.0999757, -0.137801, -3.17118, -0.601283 )
+mesh = ExtResource( 3 )
+skin = SubResource( 8 )
+skeleton = NodePath("../../TilesRigidBody/tiles")
