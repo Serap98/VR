@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Grass01.png" type="Texture" id=1]
 [ext_resource path="res://TexturesCom_Asphalt22_3x3_512_albedo.png" type="Texture" id=2]
@@ -7,6 +7,11 @@
 [ext_resource path="res://objects/table/uploads_files_2979220_FoldingTable.obj" type="ArrayMesh" id=5]
 [ext_resource path="res://objects/bench/ODB-0001 Bench1 Cycles.fbx" type="PackedScene" id=6]
 [ext_resource path="res://objects/jack danniels/uploads_files_3214861_Jack+Daniels.obj" type="ArrayMesh" id=7]
+[ext_resource path="res://objects/grill/uploads_files_2788748_Electric+Grill.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://objects/lamp/MEC103NM.obj" type="ArrayMesh" id=9]
+[ext_resource path="res://objects/jack danniels/c3b2fdf4355b.jpg" type="Texture" id=10]
+[ext_resource path="res://objects/candle/lampion.obj" type="ArrayMesh" id=11]
+[ext_resource path="res://objects/plant1/Plant OBJ.obj" type="ArrayMesh" id=12]
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 7.5, 0.15, 7.5 )
@@ -40,6 +45,57 @@ extents = Vector3( 0.61906, 0.849713, 0.121765 )
 
 [sub_resource type="BoxShape" id=11]
 extents = Vector3( 0.552587, 0.492296, 0.0650555 )
+
+[sub_resource type="BoxShape" id=12]
+extents = Vector3( 0.235739, 0.464293, 0.220461 )
+
+[sub_resource type="BoxShape" id=13]
+extents = Vector3( 0.0893671, 0.229695, 0.100248 )
+
+[sub_resource type="SpatialMaterial" id=14]
+albedo_color = Color( 0.662745, 0.517647, 0.517647, 1 )
+albedo_texture = ExtResource( 10 )
+
+[sub_resource type="SpatialMaterial" id=15]
+albedo_color = Color( 0.611765, 0.505882, 0.505882, 1 )
+albedo_texture = ExtResource( 10 )
+
+[sub_resource type="SpatialMaterial" id=16]
+albedo_color = Color( 0.713726, 0.615686, 0.615686, 1 )
+albedo_texture = ExtResource( 10 )
+
+[sub_resource type="SphereShape" id=17]
+radius = 0.911424
+
+[sub_resource type="BoxShape" id=18]
+extents = Vector3( 0.573692, 0.961005, 0.0881453 )
+
+[sub_resource type="BoxShape" id=19]
+extents = Vector3( 0.483816, 0.986972, 0.0734789 )
+
+[sub_resource type="BoxShape" id=20]
+extents = Vector3( 0.21009, 1.12611, 0.912118 )
+
+[sub_resource type="BoxShape" id=21]
+extents = Vector3( 0.0813111, 1.03969, 0.904686 )
+
+[sub_resource type="BoxShape" id=22]
+extents = Vector3( 2.20929, 0.0906877, 0.891114 )
+
+[sub_resource type="BoxShape" id=23]
+extents = Vector3( 2.36005, 0.792656, 0.100909 )
+
+[sub_resource type="BoxShape" id=24]
+extents = Vector3( 1.18598, 0.885551, 0.759884 )
+
+[sub_resource type="BoxShape" id=25]
+extents = Vector3( 0.116029, 0.548017, 0.658728 )
+
+[sub_resource type="BoxShape" id=26]
+extents = Vector3( 0.128515, 0.363207, 0.606809 )
+
+[sub_resource type="BoxShape" id=27]
+extents = Vector3( 23.1506, 21.6816, 47.574 )
 
 [node name="Spatial" type="Spatial"]
 
@@ -76,7 +132,7 @@ depth = 9.0
 material = SubResource( 2 )
 
 [node name="swing" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.07471, 3.38611, 10.5124 )
+transform = Transform( -0.776509, 0, 0.630107, 0, 1, 0, -0.630107, 0, -0.776509, 5.25223, 3.38611, 14.8022 )
 mode = 1
 
 [node name="oval" type="CollisionShape" parent="swing"]
@@ -98,7 +154,7 @@ skin = SubResource( 8 )
 skeleton = NodePath("../../TilesRigidBody/tiles")
 
 [node name="chair1" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11816, 0.608569, 14.4709 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.84989, 0.608569, 8.76047 )
 mode = 1
 
 [node name="seating_place" type="CollisionShape" parent="chair1"]
@@ -126,7 +182,7 @@ skeleton = NodePath("../..")
 [node name="chair2" type="RigidBody" parent="."]
 pause_mode = 1
 physics_interpolation_mode = 1
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58167, 0.608569, 14.4709 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.849943, 0.608569, 8.76047 )
 mode = 1
 
 [node name="seating_place" type="CollisionShape" parent="chair2"]
@@ -151,14 +207,101 @@ transform = Transform( -2, 0, 3.77489e-07, 0, 3, 0, -3.01992e-07, 0, -2.5, -0.13
 mesh = ExtResource( 4 )
 skeleton = NodePath("../..")
 
-[node name="table" type="MeshInstance" parent="."]
-transform = Transform( -0.0692962, 0, -2.09886, 0, 1.5, 0, 2.09886, 0, -0.0692962, -0.025993, -0.995275, 11.9048 )
+[node name="jackRigidBody" type="RigidBody" parent="."]
+transform = Transform( -0.776509, 0, 0.630107, 0, 1, 0, -0.630107, 0, -0.776509, -0.718205, 1.49095, 12.1159 )
+
+[node name="kunas" type="CollisionShape" parent="jackRigidBody"]
+transform = Transform( -0.776509, 0, -0.630107, 0, 1, 0, 0.630107, 0, -0.776509, 0.0768089, -0.188619, 0.00324917 )
+shape = SubResource( 12 )
+
+[node name="kaklas" type="CollisionShape" parent="jackRigidBody"]
+transform = Transform( -0.776509, 0, -0.630107, 0, 1, 0, 0.630107, 0, -0.776509, 0.0592427, 0.544073, 0.00780964 )
+shape = SubResource( 13 )
+
+[node name="uploads_files_3214861_Jack+Daniels" type="MeshInstance" parent="jackRigidBody"]
+transform = Transform( -3.88254, 0, -3.15053, 0, 5, 0, 3.15053, 0, -3.88254, 8.62917, -4.49015, -16.3343 )
+mesh = ExtResource( 7 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 14 )
+material/1 = SubResource( 15 )
+material/2 = SubResource( 16 )
+
+[node name="tableRigidbody" type="RigidBody" parent="."]
+
+[node name="pavirsius" type="CollisionShape" parent="tableRigidbody"]
+transform = Transform( 1, 0, 0, 0, 0.2, 0, 0, 0, 1, -0.264034, 0.906753, 11.9006 )
+shape = SubResource( 17 )
+
+[node name="kojos1" type="CollisionShape" parent="tableRigidbody"]
+transform = Transform( 1, 0, 0, 0, 0.819152, 0.573577, 0, -0.573577, 0.819152, -0.290521, -0.110629, 12.1839 )
+shape = SubResource( 18 )
+
+[node name="kojos2" type="CollisionShape" parent="tableRigidbody"]
+transform = Transform( 1, 0, 0, 0, 0.819152, -0.573577, 0, 0.573577, 0.819152, -0.24584, -0.0951175, 11.6126 )
+shape = SubResource( 19 )
+
+[node name="table" type="MeshInstance" parent="tableRigidbody"]
+transform = Transform( -0.0692962, 0, -2.09886, 0, 1.5, 0, 2.09886, 0, -0.0692962, -0.267625, -0.995275, 11.9048 )
 mesh = ExtResource( 5 )
 skeleton = NodePath("")
 
-[node name="ODB-0001 Bench1 Cycles" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.196445, 0, -3.69554, 0, 3.7, 0, 3.99517, 0, 0.181712, -0.351971, -1.03276, 8.84373 )
+[node name="suoliukasRigidBody" type="RigidBody" parent="."]
+transform = Transform( -0.99947, 0, 0.032562, 0, 1, 0, -0.032562, 0, -0.99947, -0.629786, 0, 16.2841 )
 
-[node name="uploads_files_3214861_Jack+Daniels" type="MeshInstance" parent="."]
-transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -17.2028, -2.99921, 19.3624 )
-mesh = ExtResource( 7 )
+[node name="kojos1" type="CollisionShape" parent="suoliukasRigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.56026, 0.115618, 1.45071 )
+shape = SubResource( 20 )
+
+[node name="kojos2" type="CollisionShape" parent="suoliukasRigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.88729, 0.0635476, 1.21734 )
+shape = SubResource( 21 )
+
+[node name="sedimavieta" type="CollisionShape" parent="suoliukasRigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.378102, 0.336084, 1.24887 )
+shape = SubResource( 22 )
+
+[node name="atlosas" type="CollisionShape" parent="suoliukasRigidBody"]
+transform = Transform( 1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, -0.425276, 1.1701, 0.418774 )
+shape = SubResource( 23 )
+
+[node name="ODB-0001 Bench1 Cycles" parent="suoliukasRigidBody" instance=ExtResource( 6 )]
+transform = Transform( 0.196445, 0, -3.69554, 0, 3.7, 0, 3.99517, 0, 0.181712, -0.351971, -1.03276, 1.19903 )
+
+[node name="GrillRigidBody" type="RigidBody" parent="."]
+
+[node name="grillbody" type="CollisionShape" parent="GrillRigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.05075, 0.544403, 8.60491 )
+shape = SubResource( 24 )
+
+[node name="legs1" type="CollisionShape" parent="GrillRigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.13826, -0.386303, 8.61722 )
+shape = SubResource( 25 )
+
+[node name="legs2" type="CollisionShape" parent="GrillRigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.00894, -0.64206, 8.64135 )
+shape = SubResource( 26 )
+
+[node name="uploads_files_2788748_Electric+Grill" type="MeshInstance" parent="GrillRigidBody"]
+transform = Transform( 0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.015, -6.08432, -0.947366, 8.65033 )
+mesh = ExtResource( 8 )
+skeleton = NodePath("../..")
+
+[node name="MEC103NM" type="MeshInstance" parent="."]
+transform = Transform( -0.005, -9.60194e-07, 1.14492e-14, 0, 5.96244e-11, 0.005, -9.60252e-07, 0.005, -5.96244e-11, 6.19185, -0.532997, 8.17442 )
+mesh = ExtResource( 9 )
+
+[node name="LampRigidBody" type="RigidBody" parent="."]
+transform = Transform( 0.01, 0, 0, 0, -4.37114e-10, 0.01, 0, -0.01, -4.37114e-10, -0.168394, 1.06221, 11.772 )
+
+[node name="CollisionShape" type="CollisionShape" parent="LampRigidBody"]
+transform = Transform( 0.707107, 0.707107, 0, -0.707107, 0.707107, 3.55271e-15, 0, 0, 1, 22.5929, -23.2469, 47.9646 )
+shape = SubResource( 27 )
+
+[node name="lampion" type="MeshInstance" parent="LampRigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 0, 0, 0 )
+mesh = ExtResource( 11 )
+skeleton = NodePath("../..")
+
+[node name="Plant OBJ" type="MeshInstance" parent="."]
+transform = Transform( 0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 4.90691, -0.203832, 8.7388 )
+mesh = ExtResource( 12 )

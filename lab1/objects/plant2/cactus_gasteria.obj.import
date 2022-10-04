@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/cactus_gasteria.obj-bbb58385ad4758718aff494db4825793.mesh"
+
+[deps]
+
+files=[ "res://.import/cactus_gasteria.obj-bbb58385ad4758718aff494db4825793.mesh" ]
+
+source_file="res://objects/plant2/cactus_gasteria.obj"
+dest_files=[ "res://.import/cactus_gasteria.obj-bbb58385ad4758718aff494db4825793.mesh", "res://.import/cactus_gasteria.obj-bbb58385ad4758718aff494db4825793.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
