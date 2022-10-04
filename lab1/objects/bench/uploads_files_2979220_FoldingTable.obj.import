@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/uploads_files_2979220_FoldingTable.obj-c45d4496f7bfc6603f74514abb5da17c.mesh"
+
+[deps]
+
+files=[ "res://.import/uploads_files_2979220_FoldingTable.obj-c45d4496f7bfc6603f74514abb5da17c.mesh" ]
+
+source_file="res://objects/bench/uploads_files_2979220_FoldingTable.obj"
+dest_files=[ "res://.import/uploads_files_2979220_FoldingTable.obj-c45d4496f7bfc6603f74514abb5da17c.mesh", "res://.import/uploads_files_2979220_FoldingTable.obj-c45d4496f7bfc6603f74514abb5da17c.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

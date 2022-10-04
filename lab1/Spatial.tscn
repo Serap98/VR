@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Grass01.png" type="Texture" id=1]
 [ext_resource path="res://TexturesCom_Asphalt22_3x3_512_albedo.png" type="Texture" id=2]
 [ext_resource path="res://objects/swing_chair/Swing Chair.obj" type="ArrayMesh" id=3]
 [ext_resource path="res://objects/chair/uploads_files_2626455_Boomerang_chair.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://objects/table/uploads_files_2979220_FoldingTable.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://objects/bench/ODB-0001 Bench1 Cycles.fbx" type="PackedScene" id=6]
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 7.5, 0.15, 7.5 )
@@ -28,6 +30,15 @@ extents = Vector3( 0.718923, 0.986626, 0.849823 )
 extents = Vector3( 0.146039, 3.06356, 0.103352 )
 
 [sub_resource type="Skin" id=8]
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 0.612474, 0.139129, 0.749277 )
+
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 0.61906, 0.849713, 0.121765 )
+
+[sub_resource type="BoxShape" id=11]
+extents = Vector3( 0.552587, 0.492296, 0.0650555 )
 
 [node name="Spatial" type="Spatial"]
 
@@ -63,27 +74,84 @@ height = 0.3
 depth = 9.0
 material = SubResource( 2 )
 
-[node name="RigidBody" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.64113, 3.38611, 13.0771 )
+[node name="swing" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.07471, 3.38611, 10.5124 )
+mode = 1
 
-[node name="oval" type="CollisionShape" parent="RigidBody"]
+[node name="oval" type="CollisionShape" parent="swing"]
 transform = Transform( 1.2, 0, 0, 0, 1.55, 0, 0, 0, 1.75, -0.596992, 0.176142, -0.670918 )
 shape = SubResource( 5 )
 
-[node name="blanket" type="CollisionShape" parent="RigidBody"]
+[node name="blanket" type="CollisionShape" parent="swing"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.705729, -2.12731, -0.837606 )
 shape = SubResource( 6 )
 
-[node name="chain" type="CollisionShape" parent="RigidBody"]
+[node name="chain" type="CollisionShape" parent="swing"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.646382, 4.85323, -0.755887 )
 shape = SubResource( 7 )
 
-[node name="Swing Chair" type="MeshInstance" parent="RigidBody"]
+[node name="Swing Chair" type="MeshInstance" parent="swing"]
 transform = Transform( 0.0999757, 0, -0.00220593, 0, 0.1, 0, 0.00220593, 0, 0.0999757, -0.137801, -3.17118, -0.601283 )
 mesh = ExtResource( 3 )
 skin = SubResource( 8 )
 skeleton = NodePath("../../TilesRigidBody/tiles")
 
-[node name="chair" type="MeshInstance" parent="."]
-transform = Transform( -2, 0, 3.77489e-07, 0, 3, 0, -3.01992e-07, 0, -2.5, -1.74814, -0.972844, 14.5198 )
+[node name="chair1" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11816, 0.608569, 14.4709 )
+mode = 1
+
+[node name="seating_place" type="CollisionShape" parent="chair1"]
+transform = Transform( 1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, -0.129886, -0.597339, -0.174645 )
+shape = SubResource( 9 )
+
+[node name="atlosas" type="CollisionShape" parent="chair1"]
+transform = Transform( 1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, -0.109413, 0, 0.615833 )
+shape = SubResource( 10 )
+
+[node name="kojos nugara" type="CollisionShape" parent="chair1"]
+transform = Transform( 1, 0, 0, 0, 0.951056, 0.309017, 0, -0.309017, 0.951056, -0.123468, -1.08175, 0.725072 )
+shape = SubResource( 11 )
+
+[node name="kojos nugara2" type="CollisionShape" parent="chair1"]
+pause_mode = 2
+transform = Transform( 1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, -0.123468, -1.08175, -0.827024 )
+shape = SubResource( 11 )
+
+[node name="chair" type="MeshInstance" parent="chair1"]
+transform = Transform( -2, 0, 3.77489e-07, 0, 3, 0, -3.01992e-07, 0, -2.5, -0.132875, -1.58141, 0.0488558 )
 mesh = ExtResource( 4 )
+skeleton = NodePath("../..")
+
+[node name="chair2" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58167, 0.608569, 14.4709 )
+mode = 1
+
+[node name="seating_place" type="CollisionShape" parent="chair2"]
+transform = Transform( 1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, -0.129886, -0.597339, -0.174645 )
+shape = SubResource( 9 )
+
+[node name="atlosas" type="CollisionShape" parent="chair2"]
+transform = Transform( 1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, -0.109413, 0, 0.615833 )
+shape = SubResource( 10 )
+
+[node name="kojos nugara" type="CollisionShape" parent="chair2"]
+transform = Transform( 1, 0, 0, 0, 0.951056, 0.309017, 0, -0.309017, 0.951056, -0.123468, -1.08175, 0.725072 )
+shape = SubResource( 11 )
+
+[node name="kojos nugara2" type="CollisionShape" parent="chair2"]
+pause_mode = 2
+transform = Transform( 1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, -0.123468, -1.08175, -0.827024 )
+shape = SubResource( 11 )
+
+[node name="chair" type="MeshInstance" parent="chair2"]
+transform = Transform( -2, 0, 3.77489e-07, 0, 3, 0, -3.01992e-07, 0, -2.5, -0.132875, -1.58141, 0.0488558 )
+mesh = ExtResource( 4 )
+skeleton = NodePath("../..")
+
+[node name="table" type="MeshInstance" parent="."]
+transform = Transform( -0.0692962, 0, -2.09886, 0, 1.5, 0, 2.09886, 0, -0.0692962, -0.025993, -0.995275, 11.9048 )
+mesh = ExtResource( 5 )
+skeleton = NodePath("")
+
+[node name="ODB-0001 Bench1 Cycles" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.196445, 0, -3.69554, 0, 3.7, 0, 3.99517, 0, 0.181712, -0.351971, -1.03276, 8.84373 )
