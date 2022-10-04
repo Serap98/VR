@@ -1,17 +1,18 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Grass01.png" type="Texture" id=1]
 [ext_resource path="res://TexturesCom_Asphalt22_3x3_512_albedo.png" type="Texture" id=2]
 [ext_resource path="res://objects/swing_chair/Swing Chair.obj" type="ArrayMesh" id=3]
 [ext_resource path="res://objects/chair/uploads_files_2626455_Boomerang_chair.obj" type="ArrayMesh" id=4]
 [ext_resource path="res://objects/table/uploads_files_2979220_FoldingTable.obj" type="ArrayMesh" id=5]
-[ext_resource path="res://objects/bench/ODB-0001 Bench1 Cycles.fbx" type="PackedScene" id=6]
+[ext_resource path="res://objects/dumpster/uploads_files_2697203_dumpster.obj" type="ArrayMesh" id=6]
 [ext_resource path="res://objects/jack danniels/uploads_files_3214861_Jack+Daniels.obj" type="ArrayMesh" id=7]
 [ext_resource path="res://objects/grill/uploads_files_2788748_Electric+Grill.obj" type="ArrayMesh" id=8]
 [ext_resource path="res://objects/lamp/MEC103NM.obj" type="ArrayMesh" id=9]
 [ext_resource path="res://objects/jack danniels/c3b2fdf4355b.jpg" type="Texture" id=10]
 [ext_resource path="res://objects/candle/lampion.obj" type="ArrayMesh" id=11]
 [ext_resource path="res://objects/plant1/Plant OBJ.obj" type="ArrayMesh" id=12]
+[ext_resource path="res://objects/plant2/cactus_gasteria.obj" type="ArrayMesh" id=13]
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 7.5, 0.15, 7.5 )
@@ -97,6 +98,29 @@ extents = Vector3( 0.128515, 0.363207, 0.606809 )
 [sub_resource type="BoxShape" id=27]
 extents = Vector3( 23.1506, 21.6816, 47.574 )
 
+[sub_resource type="BoxShape" id=28]
+extents = Vector3( 0.624927, 0.876108, 0.920574 )
+
+[sub_resource type="BoxShape" id=29]
+extents = Vector3( 0.161365, 1.37235, 0.157831 )
+
+[sub_resource type="BoxShape" id=30]
+extents = Vector3( 0.0893208, 0.796792, 0.141528 )
+
+[sub_resource type="BoxShape" id=31]
+extents = Vector3( 0.0840226, 0.840517, 0.0959641 )
+
+[sub_resource type="CapsuleShape" id=32]
+radius = 0.428925
+height = 0.002
+
+[sub_resource type="CapsuleShape" id=33]
+height = 0.002
+
+[sub_resource type="CapsuleShape" id=34]
+radius = 0.751235
+height = 0.507608
+
 [node name="Spatial" type="Spatial"]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
@@ -132,7 +156,7 @@ depth = 9.0
 material = SubResource( 2 )
 
 [node name="swing" type="RigidBody" parent="."]
-transform = Transform( -0.776509, 0, 0.630107, 0, 1, 0, -0.630107, 0, -0.776509, 5.25223, 3.38611, 14.8022 )
+transform = Transform( -0.776509, 0, 0.630107, 0, 1, 0, -0.630107, 0, -0.776509, 6.03544, 3.38611, 14.2625 )
 mode = 1
 
 [node name="oval" type="CollisionShape" parent="swing"]
@@ -264,9 +288,6 @@ shape = SubResource( 22 )
 transform = Transform( 1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, -0.425276, 1.1701, 0.418774 )
 shape = SubResource( 23 )
 
-[node name="ODB-0001 Bench1 Cycles" parent="suoliukasRigidBody" instance=ExtResource( 6 )]
-transform = Transform( 0.196445, 0, -3.69554, 0, 3.7, 0, 3.99517, 0, 0.181712, -0.351971, -1.03276, 1.19903 )
-
 [node name="GrillRigidBody" type="RigidBody" parent="."]
 
 [node name="grillbody" type="CollisionShape" parent="GrillRigidBody"]
@@ -286,10 +307,6 @@ transform = Transform( 0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.015, -6.08432, -0.94736
 mesh = ExtResource( 8 )
 skeleton = NodePath("../..")
 
-[node name="MEC103NM" type="MeshInstance" parent="."]
-transform = Transform( -0.005, -9.60194e-07, 1.14492e-14, 0, 5.96244e-11, 0.005, -9.60252e-07, 0.005, -5.96244e-11, 6.19185, -0.532997, 8.17442 )
-mesh = ExtResource( 9 )
-
 [node name="LampRigidBody" type="RigidBody" parent="."]
 transform = Transform( 0.01, 0, 0, 0, -4.37114e-10, 0.01, 0, -0.01, -4.37114e-10, -0.168394, 1.06221, 11.772 )
 
@@ -302,6 +319,71 @@ transform = Transform( 1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 0, 0, 0 )
 mesh = ExtResource( 11 )
 skeleton = NodePath("../..")
 
-[node name="Plant OBJ" type="MeshInstance" parent="."]
+[node name="DumpsterRigidBody" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9644, 0, 15.0143 )
+
+[node name="CollisionShape" type="CollisionShape" parent="DumpsterRigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.528872, -0.144889, 0.458445 )
+shape = SubResource( 28 )
+
+[node name="uploads_files_2697203_dumpster" type="MeshInstance" parent="DumpsterRigidBody"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.445381, -1.20212, 0.754884 )
+mesh = ExtResource( 6 )
+skeleton = NodePath("../..")
+
+[node name="weird_lamp" type="RigidBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="weird_lamp"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.69024, 0.4325, 8.1091 )
+shape = SubResource( 29 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="weird_lamp"]
+transform = Transform( 0.766044, -0.642788, 0, 0.642788, 0.766044, 0, 0, 0, 1, 6.166, 2.43368, 8.13191 )
+shape = SubResource( 30 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="weird_lamp"]
+transform = Transform( 0.0871558, -0.996195, 0, 0.996195, 0.0871558, 0, 0, 0, 1, 4.86401, 3.06058, 8.17445 )
+shape = SubResource( 31 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="weird_lamp"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.12964, 2.97058, 8.17118 )
+shape = SubResource( 32 )
+
+[node name="bigger_lamp" type="MeshInstance" parent="weird_lamp"]
+transform = Transform( -0.005, -9.60194e-07, 1.14492e-14, 0, 5.96244e-11, 0.005, -9.60252e-07, 0.005, -5.96244e-11, 6.68171, -0.95413, 8.17442 )
+mesh = ExtResource( 9 )
+skeleton = NodePath("../..")
+
+[node name="CactusRigidBody" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3177, 0, 10.0315 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CactusRigidBody"]
+transform = Transform( 0.8, 0, 0, 0, 1, 0, 0, 0, 0.8, -0.234831, 0, -0.149529 )
+shape = SubResource( 33 )
+
+[node name="cactus_gasteria" type="MeshInstance" parent="CactusRigidBody"]
+transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.162557, -1.00149, -0.0607033 )
+mesh = ExtResource( 13 )
+skeleton = NodePath("../..")
+
+[node name="PlantRigidBody" type="RigidBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="PlantRigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23372, -0.357236, 8.8259 )
+shape = SubResource( 34 )
+
+[node name="Plant OBJ" type="MeshInstance" parent="PlantRigidBody"]
 transform = Transform( 0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 4.90691, -0.203832, 8.7388 )
 mesh = ExtResource( 12 )
+skeleton = NodePath("../..")
+
+[node name="DumpsterRigidBody2" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.02675, 0, 12.9273 )
+
+[node name="CollisionShape" type="CollisionShape" parent="DumpsterRigidBody2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.528872, -0.144889, 0.458445 )
+shape = SubResource( 28 )
+
+[node name="uploads_files_2697203_dumpster" type="MeshInstance" parent="DumpsterRigidBody2"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.445381, -1.20212, 0.754884 )
+mesh = ExtResource( 6 )
