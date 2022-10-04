@@ -124,6 +124,8 @@ mesh = ExtResource( 4 )
 skeleton = NodePath("../..")
 
 [node name="chair2" type="RigidBody" parent="."]
+pause_mode = 1
+physics_interpolation_mode = 1
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58167, 0.608569, 14.4709 )
 mode = 1
 
