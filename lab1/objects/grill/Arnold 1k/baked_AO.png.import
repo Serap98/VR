@@ -2,26 +2,28 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/baked_AO.png-cb16afd54c3c46de0113f23e44e9dfe2.stex"
+path.s3tc="res://.import/baked_AO.png-cb16afd54c3c46de0113f23e44e9dfe2.s3tc.stex"
+path.etc2="res://.import/baked_AO.png-cb16afd54c3c46de0113f23e44e9dfe2.etc2.stex"
 metadata={
-"vram_texture": false
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://objects/grill/Arnold 1k/baked_AO.png"
-dest_files=[ "res://.import/baked_AO.png-cb16afd54c3c46de0113f23e44e9dfe2.stex" ]
+dest_files=[ "res://.import/baked_AO.png-cb16afd54c3c46de0113f23e44e9dfe2.s3tc.stex", "res://.import/baked_AO.png-cb16afd54c3c46de0113f23e44e9dfe2.etc2.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=true
 flags/filter=true
-flags/mipmaps=false
+flags/mipmaps=true
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true
@@ -31,5 +33,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

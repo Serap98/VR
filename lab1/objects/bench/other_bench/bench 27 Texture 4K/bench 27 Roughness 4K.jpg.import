@@ -2,26 +2,28 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bench 27 Roughness 4K.jpg-f8d216bc2292c45307f1f35aaaa5de8f.stex"
+path.s3tc="res://.import/bench 27 Roughness 4K.jpg-f8d216bc2292c45307f1f35aaaa5de8f.s3tc.stex"
+path.etc2="res://.import/bench 27 Roughness 4K.jpg-f8d216bc2292c45307f1f35aaaa5de8f.etc2.stex"
 metadata={
-"vram_texture": false
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://objects/bench/other_bench/bench 27 Texture 4K/bench 27 Roughness 4K.jpg"
-dest_files=[ "res://.import/bench 27 Roughness 4K.jpg-f8d216bc2292c45307f1f35aaaa5de8f.stex" ]
+dest_files=[ "res://.import/bench 27 Roughness 4K.jpg-f8d216bc2292c45307f1f35aaaa5de8f.s3tc.stex", "res://.import/bench 27 Roughness 4K.jpg-f8d216bc2292c45307f1f35aaaa5de8f.etc2.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=true
 flags/filter=true
-flags/mipmaps=false
+flags/mipmaps=true
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true
@@ -31,5 +33,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
